@@ -134,6 +134,16 @@ class MakeDataSet:
                         self.save_meta(meta_list)
                         np.save(patient_image_dir / nodule_name,lung_segmented_np_array)
                         np.save(patient_mask_dir / mask_name,mask[:,:,nodule_slice])
+
+                        # 新增代码: 保存每位专家的掩码为图片
+                        for expert_idx, expert_mask in enumerate(masks):
+                            # 将掩码转换为Image对象
+                            expert_mask_image = Image.fromarray((expert_mask[:,:,nodule_slice] * 255).astype(np.uint8))
+                            # 定义保存路径和文件名
+                            expert_mask_name = f"{mask_name}_expert{expert_idx+1}.png"
+                            # 保存图片
+                            expert_mask_image.save(patient_mask_dir / expert_mask_name)
+
             else:
                 print("Clean Dataset",pid)
                 patient_clean_dir_image = CLEAN_DIR_IMAGE / pid
@@ -171,3 +181,4 @@ if __name__ == '__main__':
 
     test= MakeDataSet(LIDC_IDRI_list,IMAGE_DIR,MASK_DIR,CLEAN_DIR_IMAGE,CLEAN_DIR_MASK,META_DIR,mask_threshold,padding,confidence_level)
     test.prepare_dataset()
+    
