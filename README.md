@@ -97,7 +97,7 @@ The Meta folder contains the meta.csv file. The csv file contains information of
 
 ## 5. Inter Rater Variability
 
-
+![Inter Rater Variability Image](/figures/average_dice_heatmap.png)
 
 ## 6. Contributing and Acknowledgement
 I started this Lung cancer detection project a year ago. I was really a newbie to python. I didn't even understand what a directory setting is at the time! However, I had to complete this project
