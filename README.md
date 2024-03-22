@@ -1,4 +1,8 @@
 # LIDC Preprocessing with Pylidc library
+
+Supports obtaining annotations from four experts.
+
+
 [Medium Link](https://medium.com/@jaeho3690/how-to-start-your-very-first-lung-cancer-detection-project-using-python-part-1-3ab490964aae)
 
 This repository would preprocess the LIDC-IDRI dataset. We use pylidc library to save nodule images into an .npy file format.
